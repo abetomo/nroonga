@@ -1,7 +1,7 @@
 ## nroonga
 
 [![npm version](https://badge.fury.io/js/nroonga.svg)](https://badge.fury.io/js/nroonga)
-[![Build Status](https://secure.travis-ci.org/nroonga/nroonga.svg?branch=master)](http://travis-ci.org/nroonga/nroonga)
+![Node CI](https://github.com/nroonga/nroonga/workflows/Node%20CI/badge.svg)
 
 [nroonga](http://nroonga.github.com) is a library for building groonga powered nodes.
 You can write your custom full-text search backend on the top of [node.js](http://nodejs.org) and [groonga][].
