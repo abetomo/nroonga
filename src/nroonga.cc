@@ -153,7 +153,7 @@ void Database::CommandWork(uv_work_t* req) {
   baton->error = 0;
 }
 
-void Database::CommandAfter(uv_work_t* req) {
+void Database::CommandAfter(uv_work_t* req, int status) {
   Nan::HandleScope scope;
 
   Baton* baton = static_cast<Baton*>(req->data);

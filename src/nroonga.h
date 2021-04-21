@@ -47,7 +47,7 @@ class Database : public Nan::ObjectWrap {
       }
     }
     static void CommandWork(uv_work_t* req);
-    static void CommandAfter(uv_work_t* req);
+    static void CommandAfter(uv_work_t* req, int status);
 };
 
 void InitNroonga(v8::Local<v8::Object> exports);
