@@ -15,8 +15,11 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - name: Install Groonga
       run: |
-        curl --silent --location https://github.com/groonga/groonga/raw/HEAD/data/travis/setup.sh | sh
-        sudo apt-get install -qq -y groonga-normalizer-mysql groonga-tokenizer-mecab
+        sudo apt install -y -V ca-certificates lsb-release wget
+        wget https://packages.groonga.org/ubuntu/groonga-apt-source-latest-$(lsb_release --codename --short).deb
+        sudo apt install -y -V ./groonga-apt-source-latest-$(lsb_release --codename --short).deb
+        sudo apt update
+        sudo apt-get install -y -V libgroonga groonga-tokenizer-mecab
     - name: npm install and test
       run: |
         npm ci
@@ -37,7 +40,7 @@ jobs:
     - name: Install Groonga
       shell: cmd
       run: |
-        set ARCHIVE=groonga-latest-x64-vs2019.zip
+        set ARCHIVE=groonga-latest-x64-vs2022.zip
 
         choco install -y curl 7zip.commandline
         curl -OL https://packages.groonga.org/windows/groonga/%ARCHIVE%
